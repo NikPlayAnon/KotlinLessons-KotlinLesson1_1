@@ -10,6 +10,14 @@ fun main() {
     println(createOutputString("Daniel", 32, isStudent = null))
     println(multiplyBy(null, 4))
     println(multiplyBy(3, 4))
+
+    println("")
+    starFigure(5, 2, 2)
+    println("")
+    starFigure(1, 3, 2)
+    println("")
+    starFigure(1, 2, 4)
+
 }
 
 fun sumAll(vararg a: Int?): Int {
@@ -33,4 +41,9 @@ fun multiplyBy(a: Int?, b: Int?): Int? = if ((a != null) and (b != null)) {
     a!!.times(b!!)
 } else {
     null
+}
+
+fun starFigure(a:Int, b:Int, c:Int){
+    for (i in a.. (a+c*b) step c) println("*".repeat(i))
+    for (i in (a+(c*b-c)) downTo a step c) println("*".repeat(i))
 }
