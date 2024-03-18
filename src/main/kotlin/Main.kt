@@ -1,3 +1,5 @@
+import kotlin.time.times
+
 fun main() {
     println("sumAll = ${sumAll(1, 5, 20)}")
     println("sumAll = ${sumAll()}")
@@ -10,16 +12,25 @@ fun main() {
     println(multiplyBy(3, 4))
 }
 
-fun sumAll(vararg a:Int?):Int{
-
-    return 0
+fun sumAll(vararg a: Int?): Int {
+    var ret: Int = 0
+    if (a.isNotEmpty()) {
+        for (item in a) {
+            ret += item!!
+        }
+    }
+    return ret
 }
 
-fun createOutputString(vararg a:Any?){
+fun createOutputString(name: String, age: Int = 42, isStudent: Boolean? = false): String =
+    if (isStudent == true) {
+        "student $name has age of $age"
+    } else {
+        "$name has age of $age"
+    }
 
-}
-
-fun multiplyBy(vararg a:Int?):Int{
-
-    return 0
+fun multiplyBy(a: Int?, b: Int?): Int? = if ((a != null) and (b != null)) {
+    a!!.times(b!!)
+} else {
+    null
 }
